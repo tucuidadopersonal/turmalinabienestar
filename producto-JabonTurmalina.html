@@ -125,31 +125,16 @@
             background-color: #128C7E;
         }
         .video-container {
-            margin: 2rem 0;
             text-align: center;
+            margin: 2rem 0;
         }
-        .video-container h2 {
-            color: #2E8B57;
-            margin-bottom: 1rem;
-        }
-        video {
-            max-width: 100%;
+        iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        #cart {
-            margin-top: 2rem;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-        #cart-items {
-            list-style: none;
-            padding: 0;
-        }
-        #cart-items li {
-            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -181,18 +166,15 @@
                 </div>
             </div>
         </div>
-        <div class="video-container">
-            <h2>Conoce más sobre el Jabón de Turmalina</h2>
-            <video controls>
-                <source src="/turmalina.mp4" type="video/mp4">
-                Tu navegador no soporta el elemento de video.
-            </video>
-        </div>
         <a href="index.html" class="back-button">Volver a la tienda</a>
-        <div id="cart">
-            <h3>Carrito de Compras</h3>
-            <ul id="cart-items"></ul>
-            <p id="total-price">Total: $0</p>
+        <div class="video-container">
+            <h2>Mira cómo funciona el Jabón de Turmalina</h2>
+            <iframe 
+                src="https://www.youtube.com/embed/iGgbaw1ILMc" 
+                title="Beneficios del Jabón de Turmalina"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
     <a href="https://wa.me/573134592221" target="_blank" class="whatsapp-button">
@@ -201,38 +183,5 @@
     <footer>
         <p>&copy; 2025 Turmalina Higiene. Todos los derechos reservados.</p>
     </footer>
-    <script>
-        const pricePerUnit = 15900;
-        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        const cartList = document.getElementById("cart-items");
-        const totalPriceElement = document.getElementById("total-price");
-
-        document.getElementById("add-to-cart").addEventListener("click", function() {
-            const quantity = parseInt(document.getElementById("quantity").value);
-
-            if (quantity > 0) {
-                const item = { name: "Jabón de Turmalina", quantity: quantity, price: pricePerUnit * quantity };
-                cartItems.push(item);
-                localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                updateCart();
-            } else {
-                alert("Por favor, selecciona una cantidad válida.");
-            }
-        });
-
-        function updateCart() {
-            cartList.innerHTML = "";
-            let total = 0;
-            cartItems.forEach((item) => {
-                const listItem = document.createElement("li");
-                listItem.textContent = `${item.name} x ${item.quantity} - $${item.price.toLocaleString()}`;
-                cartList.appendChild(listItem);
-                total += item.price;
-            });
-            totalPriceElement.textContent = `Total: $${total.toLocaleString()}`;
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCart);
-    </script>
 </body>
 </html>
