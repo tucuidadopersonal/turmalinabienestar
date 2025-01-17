@@ -37,7 +37,7 @@
             max-width: 600px;
         }
         .product-info .details h2 {
-            color: #333;
+            color: #2e8b57; /* Título verde */
             margin-bottom: 1rem;
         }
         .product-info .details p {
@@ -93,6 +93,60 @@
             background-color: #128C7E;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
+
+        /* Estilo para los beneficios */
+        ul {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-left: 1.5rem;
+            color: #555;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+        strong {
+            color: #2e8b57;
+            font-size: 1.2rem;
+        }
+
+        /* Estilo para los botones */
+        .btn-green {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-green:hover {
+            background-color: #45a049;
+        }
+
+        /* Centrar el video */
+        .video-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .product-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product-info img {
+                max-width: 80%;
+            }
+            .product-info .details {
+                max-width: 100%;
+                padding: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Carrito */
         #cart {
             margin-top: 2rem;
             padding: 1rem;
@@ -106,6 +160,21 @@
         }
         #cart-items li {
             margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #e60000;
         }
 
     </style>
@@ -119,40 +188,50 @@
             <img src="images/cremadental3.jpg" alt="Green World Herbs Crema Dental">
             <div class="details">
                 <h2>Crema Dental Green World Herbs</h2>
-                <p>Green World Herbs es una Crema dental 100% Natural a diferencia de otros. A base hierbas Chinas para que tu dientes esten muy fuertes esta especialmente diseñada para el cuidado diario de la familia con multiefectos y multiprotección .</p>
-                 <p>Elaborada con Hierbas Traicionales chinas como ingredientes activos para tratar eficazmente la salud oral.</p>
+                <p>Green World Herbs es una Crema dental 100% Natural a diferencia de otros. A base hierbas Chinas para que tus dientes estén muy fuertes, especialmente diseñada para el cuidado diario de la familia con multiefectos y multiprotección.</p>
+                <p>Elaborada con hierbas tradicionales chinas como ingredientes activos para tratar eficazmente la salud oral.</p>
                 <p><strong>Aspecto:</strong></p>
-                <p>Sin pigmento añadido, color herbal. viscocidad moderada, suave y delicada.</p>
+                <p>Sin pigmento añadido, color herbal. Viscosidad moderada, suave y delicada.</p>
                 <p><strong>Olor:</strong></p>
-                <p>La fragancia natural de la medicina herbal china mezclada con fragancia de Menta.</p>
+                <p>La fragancia natural de la medicina herbal china mezclada con fragancia de menta.</p>
 
                 <p><strong>Beneficios:</strong></p>
                 <ul>
-                    <li>Promover la inmunidad oral</li>
-                    <li>Lucha contra ensias débiles</li>
-                    <li>Mejora Capacidad de Ensias para absorber nutrientes</li>
-                    <li>Elimina Mal Aliento de la boca, genera una sensación de frescura y reduce microbios orales.</li>
-                    <li>Las hierbas de la pasta dental son ricas en hojas de Arce y esencia activa de Lycium Chinense que promueve el anti-envejecimiento</li>
+                    <li>Promueve la inmunidad oral</li>
+                    <li>Lucha contra encías débiles</li>
+                    <li>Mejora la capacidad de las encías para absorber nutrientes</li>
+                    <li>Elimina el mal aliento de la boca, genera una sensación de frescura y reduce los microbios orales</li>
+                    <li>Las hierbas de la pasta dental son ricas en hojas de arce y esencia activa de Lycium Chinense que promueven el anti-envejecimiento</li>
                     <li>Alivia la inflamación y el dolor de las encías</li>
-                    <li>Cuida las encias y disminuye el sangrado</li>
+                    <li>Cuida las encías y disminuye el sangrado</li>
                 </ul>
 
-                <p class="price">$33.900</p>
+                <p class="price">$30.900</p>
+
                 <form id="cart-form">
                     <label for="quantity">Cantidad:</label>
                     <input type="number" id="quantity" name="quantity" value="1" min="1">
-                    <button type="button" id="add-to-cart">Agregar al carrito</button>
+                    <button type="button" id="add-to-cart" class="btn-green">Agregar al carrito</button>
                 </form>
             </div>
         </div>
-        <a href="index.html" class="back-button">Volver a la tienda</a>
 
         <!-- Carrito de compras -->
         <div id="cart">
             <h3>Carrito de Compras</h3>
             <ul id="cart-items"></ul>
             <p id="total-price">Total: $0</p>
+
+            <!-- Botón de Comprar Ahora -->
+            <a href="checkout.html" class="btn-green">Comprar Ahora</a>
         </div>
+
+        <!-- Video de YouTube -->
+        <div class="video-container">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/ncm-kF9Ync4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <a href="index.html" class="back-button">Volver a la tienda</a>
     </div>
 
     <a href="https://wa.me/573134592221" target="_blank" class="whatsapp-button">
@@ -187,15 +266,23 @@
             cartList.innerHTML = "";
             let total = 0;
 
-            cartItems.forEach((item) => {
+            cartItems.forEach((item, index) => {
                 const listItem = document.createElement("li");
-                listItem.textContent = `${item.name} x ${item.quantity} - $${item.price.toLocaleString()}`;
+                listItem.innerHTML = `${item.name} x ${item.quantity} - $${item.price.toLocaleString()} <button class="remove-btn" onclick="removeItem(${index})">Quitar</button>`;
                 cartList.appendChild(listItem);
                 total += item.price;
             });
 
             totalPriceElement.textContent = `Total: $${total.toLocaleString()}`;
         }
+
+        function removeItem(index) {
+            cartItems.splice(index, 1); // Eliminar el item del carrito
+            localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Actualizar localStorage
+            updateCart(); // Actualizar carrito en la interfaz
+        }
+
+        updateCart(); // Inicializar el carrito al cargar la página
     </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toallas nocturnas</title>
     <style>
-         body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -24,13 +24,15 @@
         }
         .product-info {
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
         }
         .product-info img {
-            max-width: 400px;
+            max-width: 100%;
             width: 100%;
+            max-width: 400px;
             border-radius: 8px;
         }
         .product-info .details {
@@ -106,8 +108,104 @@
         }
         #cart-items li {
             margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #cart-items li span {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .remove-item {
+            background-color: #C8A2C8; /* Fondo lila */
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .remove-item:hover {
+            background-color: #9b7da7; /* Lila más oscuro al pasar el ratón */
+        }
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .buy-now-button {
+            display: inline-block;
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px; /* Coloca el botón debajo del carrito */
+            width: 100%;
+        }
+        .buy-now-button:hover {
+            background-color: #45a049;
         }
 
+        /* Mejoras para móvil */
+        @media (max-width: 768px) {
+            .product-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            .product-info .details {
+                max-width: 100%;
+                margin-top: 1rem;
+            }
+            iframe {
+                max-width: 100%;
+                height: 250px;
+            }
+            .buy-now-button {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.2rem;
+            }
+            .back-button {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Estilo para los puntos de lista */
+        ul {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        ul li {
+            margin-bottom: 1rem;
+        }
+        ul li strong {
+            font-weight: 600;
+            color: #6a3e9d; /* Color lila suave */
+        }
     </style>
 </head>
 <body>
@@ -118,16 +216,23 @@
         <div class="product-info">
             <img src="images/toallanocturna.png" alt="Toalla Nocturna">
             <div class="details">
-                <h2>Toallas para uso nocturno</h2>
-                <p>Toalla nocturna con textura de algodón suave para la piel y con banda de turmalina generadora de aniones para la higiene y protección en el cuidado de la salud femenina.</p>
-                <p><strong>Descripción:</strong></p>
-                <p>Polímero importado material super absorbente a los fluidos de forma eficiente y rápida para mantenerte seca y cómoda. Anillo doble a prueba de fugas de cuatro vías. Chips de iones negativos, magnético, infrarrojo incorporado con funciones Anti-inflamatorias.</p>
-                <p class="price">$13.300</p>
-                
+                <h2>Toallas Nocturnas para tu Bienestar</h2>
+                <p><strong>¡Descubre la comodidad y protección que te mereces mientras duermes!</strong></p>
+                <p>Estas toallas nocturnas están hechas con un material de algodón suave que cuida tu piel, y lo mejor de todo: cuentan con una banda de turmalina que genera aniones. ¡Ideal para mantener tu salud femenina a lo largo de la noche!</p>
+                <p><strong>¿Por qué elegir nuestras toallas?</strong></p>
+                <ul>
+                    <li><strong>Absorción súper rápida:</strong> Polímero importado de alta calidad que te mantiene seca y cómoda durante toda la noche.</li>
+                    <li><strong>Sin fugas:</strong> Anillo de protección doble a prueba de fugas con tecnología de cuatro vías para evitar cualquier inconveniente.</li>
+                    <li><strong>Beneficios de la turmalina:</strong> Banda de turmalina generadora de iones negativos que te ayuda a mantener un ambiente saludable mientras duermes.</li>
+                    <li><strong>Función antiinflamatoria:</strong> Los chips magnéticos e infrarrojos incorporados ayudan a reducir la inflamación y promover una mejor circulación sanguínea.</li>
+                </ul>
+                <p><strong>¡No más preocupaciones por tu higiene nocturna! Elige nuestras toallas y duerme tranquila.</strong></p>
+                <p class="price"><strong>Solo $13.300</strong></p>
+
                 <!-- Formulario para seleccionar la cantidad -->
                 <form id="cart-form">
                     <label for="quantity">Cantidad:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="2" style="width: 50px; margin-right: 10px;">
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px; margin-right: 10px;">
                     <button type="button" id="add-to-cart" style="background-color: #4CAF50; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">
                         Agregar al carrito
                     </button>
@@ -135,7 +240,10 @@
             </div>
         </div>
 
-        <a href="index.html" class="back-button">Volver a la tienda</a>
+        <!-- Video centrado -->
+        <div style="text-align: center;">
+            <iframe src="https://www.youtube.com/embed/MDdTLvrqyo0" allowfullscreen></iframe>
+        </div>
 
         <!-- Carrito de compras -->
         <div id="cart">
@@ -143,12 +251,17 @@
             <ul id="cart-items"></ul>
             <p id="total-price">Total: $0</p>
         </div>
+
+        <!-- Botón de "Comprar ahora" debajo del carrito -->
+        <a href="checkout.html" class="buy-now-button">Comprar ahora</a>
+
+        <a href="index.html" class="back-button">Volver a la tienda</a>
     </div>
-    
+
     <a href="https://wa.me/573134592221" target="_blank" class="whatsapp-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
-    
+
     <footer>
         <p>&copy; 2025 Turmalina Higiene. Todos los derechos reservados.</p>
     </footer>
@@ -167,9 +280,9 @@
             let total = 0;
 
             // Añadir elementos al carrito
-            cartItems.forEach((item) => {
+            cartItems.forEach((item, index) => {
                 const listItem = document.createElement("li");
-                listItem.textContent = `${item.name} x ${item.quantity} - $${item.price.toLocaleString()}`;
+                listItem.innerHTML = `${item.name} x ${item.quantity} - $${item.price.toLocaleString()} <button class="remove-item" data-index="${index}">Quitar</button>`;
                 cartList.appendChild(listItem);
                 total += item.price;
             });
@@ -181,9 +294,18 @@
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
         }
 
+        // Eliminar item del carrito
+        cartList.addEventListener("click", function(e) {
+            if (e.target.classList.contains("remove-item")) {
+                const index = e.target.getAttribute("data-index");
+                cartItems.splice(index, 1); // Eliminar el item
+                updateCart();
+            }
+        });
+
         document.getElementById("add-to-cart").addEventListener("click", function() {
             const quantity = parseInt(document.getElementById("quantity").value);
-            
+
             if (quantity > 0) {
                 const item = { name: "Toallas Nocturnas", quantity: quantity, price: pricePerUnit * quantity };
                 cartItems.push(item);

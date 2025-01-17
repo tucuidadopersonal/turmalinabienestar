@@ -6,7 +6,7 @@
     <meta name="description" content="Tu tienda de confianza para productos de higiene natural y cuidado personal.">
     <title>Tu Cuidado Personal</title>
     <style>
-         /* ========== Estilos Generales ========== */
+        /* ========== Estilos Generales ========== */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -21,6 +21,18 @@
             padding: 1rem;
             text-align: center;
             position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            margin-top: 0;
         }
 
         /* Contenedor de navegación */
@@ -324,7 +336,7 @@
                 <h3>Toallas higiénicas uso de Noche</h3>
                 <p>Ultrafina / Transpirable / Absorbente / Limpia / 8 Unidades.</p>
                 <p class="price">$13.900</p>
-                <a href="producto-Toallanoche.html" class="info-button" target="_blank">Más Información</a>
+                <a href="producto-toallanoche.html" class="info-button" target="_blank">Más Información</a>
                 <button class="add-to-cart" onclick="addToCart('Toallas higiénicas uso de Noche', 13900)">Agregar al Carrito</button>
             </div>
         </section>
@@ -400,12 +412,15 @@
 
             // Mostrar el precio total
             totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
+
+            // Mostrar el carrito si tiene productos
+            document.getElementById("cart").style.display = cartItems.length > 0 ? 'block' : 'none';
         }
 
-        // Función para mostrar y ocultar el carrito
+        // Función para alternar la visualización del carrito
         function toggleCart() {
-            const cart = document.getElementById('cart');
-            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+            const cartElement = document.getElementById("cart");
+            cartElement.style.display = cartElement.style.display === 'block' ? 'none' : 'block';
         }
     </script>
 </body>

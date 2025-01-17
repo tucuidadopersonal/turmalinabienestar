@@ -191,7 +191,7 @@
             cartList.innerHTML = '';
             let totalPrice = 0;
 
-            cartItems.forEach((item) => {
+            cartItems.forEach((item, index) => {
                 const listItem = document.createElement('li');
                 listItem.classList.add('product-item');
 
@@ -201,6 +201,7 @@
                     </div>
                     <div class="product-actions">
                         <span class="product-price">$${item.price.toFixed(2)}</span>
+                        <button class="remove-button" onclick="removeItem(${index})">Quitar</button>
                     </div>
                 `;
                 cartList.appendChild(listItem);
@@ -208,6 +209,13 @@
             });
 
             totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
+        }
+
+        // Eliminar producto del carrito
+        function removeItem(index) {
+            cartItems.splice(index, 1); // Eliminar el item de la lista
+            localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Guardar el carrito actualizado
+            updateCart(); // Actualizar la vista
         }
 
         // Función para enviar datos del formulario
