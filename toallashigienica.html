@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toallas Higiénicas HWG - Información</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* ========== Encabezado (Header) ========== */
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-image {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header-image img {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .header-image img {
+                width: 100%;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Estilo para el título centrado en verde */
+        h2 {
+            text-align: center;
+            color: #4CAF50; /* Color verde */
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        .product-info img {
+            max-width: 300px;
+            width: 100%;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        .details {
+            max-width: 600px;
+        }
+        .product-info .details h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .product-info .details p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .product-info .details .price {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .add-to-cart,
+        .buy-now,
+        .more-info {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .buy-now {
+            background-color: #388E3C;
+        }
+        .more-info {
+            background-color: #2196F3;
+        }
+        .add-to-cart:hover, .buy-now:hover, .more-info:hover {
+            background-color: #45a049;
+        }
+        #cart {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        #cart-items li {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove-item {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .remove-item:hover {
+            background-color: #d32f2f;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            z-index: 1000;
+        }
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toallas Higiénicas HWG</h1>
+    </header>
+
+    <div class="header-image">
+        <img src="images/toallashigienicas/Encabezado.png" alt="Toallas Higiénicas HWG">
+    </div>
+
+    <div class="container">
+        <h2>Toallas Higiénicas para Cada Necesidad</h2>
+
+        <!--Toallas Higiénicas Uso Día -->
+        <div class="product-info">
+            <img src="images/toalladiaria3.png" alt="Toalla Higiénica Uso Día">
+            <div class="details">
+                <h2>Toallas Higiénicas Uso Día</h2>
+                <p>Partículas poliméricas importadas, Súper absorción, fuerte bloqueo a los fluidos. Cómoda y refrescante. Ergonomía, más saludable y más cómoda. Diga adiós a la sensación de húmeda y pegajosa.</p>
+                <p>De una pieza, están empaquetadas individualmente, son limpias, seguras y resistentes a la humedad.</p>
+                <p><strong>Descripción:</strong></p>
+                <p>Toalla sanitaria con textura de algodón suave para la piel y con banda de Turmalina generadora de aniones para la higiene y protección en el cuidado de la salud femenina.</p>
+                <p class="price">$12.600</p>
+                <label for="quantity-1">Cantidad:</label>
+                <input type="number" id="quantity-1" class="quantity-input" value="1" min="1">
+                <button class="add-to-cart" data-id="1" data-name="Toallas Higiénicas Día" data-price="12600">Agregar al carrito</button>
+                <button class="more-info" onclick="window.location.href='producto-toallasdia.html'">Más Información</button>
+            </div>
+        </div>
+
+        <!-- Producto 2: Toallas Nocturnas -->
+        <div class="product-info">
+            <img src="images/toallanocturna.png" alt="Toalla Nocturna">
+            <div class="details">
+                <h2>Toallas para uso nocturno</h2>
+                <p>Toalla nocturna con textura de algodón suave para la piel y con banda de turmalina generadora de aniones para la higiene y protección en el cuidado de la salud femenina.</p>
+                <p><strong>Descripción:</strong></p>
+                <p>Polímero importado material super absorbente a los fluidos de forma eficiente y rápida para mantenerte seca y cómoda. Anillo doble a prueba de fugas de cuatro vías. Chips de iones negativos, magnético, infrarrojo incorporado con funciones Anti-inflamatorias.</p>
+                <p class="price">$13.300</p>
+                <label for="quantity-2">Cantidad:</label>
+                <input type="number" id="quantity-2" class="quantity-input" value="1" min="1">
+                <button class="add-to-cart" data-id="2" data-name="Toallas Higiénicas Nocturnas" data-price="13300">Agregar al carrito</button>
+                <button class="more-info" onclick="window.location.href='producto-toallanoche.html'">Más Información</button>
+            </div>
+        </div>
+
+        <!-- Producto 3: Protectores Diarios -->
+        <div class="product-info">
+            <img src="images/protectores3.png" alt="Protectores Diarios">
+            <div class="details">
+                <h2>Protectores Diarios</h2>
+                <p>Ayuda al manejo del flujo menstrual y al drenaje vertical haciendo una absorción eficiente y rápida manteniéndote seca y cómoda.</p>
+                <p>La superficie de algodón suave y cómoda ayuda a mantenerte seca. Chips de iones negativos que favorecen el cuidado de la salud. Ayuda en el manejo de inflamaciones ginecológicas y hace más saludable la vida femenina.</p>
+                <p><strong>Descripción:</strong></p>
+                <p>Toalla sanitaria con textura de algodón suave para la piel y con banda de Turmalina generadora de aniones para la higiene y protección en el cuidado de la salud femenina.</p>
+                <p class="price">$15.600</p>
+                <label for="quantity-3">Cantidad:</label>
+                <input type="number" id="quantity-3" class="quantity-input" value="1" min="1">
+                <button class="add-to-cart" data-id="3" data-name="Protectores Diarios" data-price="15600">Agregar al carrito</button>
+                <button class="more-info" onclick="window.location.href='producto-protector.html'">Más Información</button>
+            </div>
+        </div>
+
+        <!-- Carrito -->
+        <div id="cart">
+            <h3>Carrito de Compras</h3>
+            <ul id="cart-items"></ul>
+            <p id="total-price">Total: $0</p>
+            <button class="buy-now" onclick="window.location.href='checkout.html'">Comprar ahora</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Tu Cuidado Personal. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/573203262909" class="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        // Inicializar carrito
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Función para agregar productos al carrito
+        function addToCart(id, name, price, quantity) {
+            const product = { id, name, price, quantity };
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        // Función para quitar productos del carrito
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id); // Filtra el producto con el id especificado
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart(); // Actualiza la vista del carrito
+        }
+
+        // Función para actualizar la vista del carrito
+        function updateCart() {
+            const cartItemsList = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            cartItemsList.innerHTML = ''; // Limpiar lista del carrito
+
+            let total = 0;
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `${item.name} x${item.quantity} - $${item.price * item.quantity} 
+                                      <button class="remove-item" onclick="removeFromCart(${item.id})">Quitar</button>`;
+                cartItemsList.appendChild(listItem);
+                total += item.price * item.quantity;
+            });
+
+            totalPriceElement.textContent = `Total: $${total}`;
+        }
+
+        // Función para manejar el evento de "Añadir al carrito"
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const button = e.target;
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                const quantity = parseInt(button.previousElementSibling.value);
+
+                addToCart(id, name, price, quantity);
+            });
+        });
+
+        // Actualizar el carrito al cargar la página
+        updateCart();
+    </script>
+</body>
+</html>

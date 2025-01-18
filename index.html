@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tu tienda de confianza para productos de higiene natural y cuidado personal.">
     <title>Tu Cuidado Personal</title>
@@ -18,9 +18,8 @@
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
-            position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -60,27 +59,6 @@
 
         nav a:hover {
             background-color: #45a049;
-        }
-
-        header .cart-button {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            background-color: #ffffff;
-            color: #4CAF50;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        header .cart-button:hover {
-            background-color: #45a049;
-            color: white;
         }
 
         /* ========== Contenedor Principal ========== */
@@ -182,7 +160,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             z-index: 999;
+            max-height: 300px;
+            width: 250px;
+            overflow-y: auto;
             display: none;
+            transition: right 0.3s ease;
         }
 
         #cart h3 {
@@ -194,8 +176,6 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            max-height: 200px;
-            overflow-y: auto;
         }
 
         #cart-items li {
@@ -260,6 +240,52 @@
             padding: 1rem 0;
             margin-top: 2rem;
         }
+
+        /* ========== Estilo para el Botón de Ver Carrito Inferior ========== */
+        .view-cart-button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .view-cart-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .view-cart-button:hover {
+            background-color: #45a049;
+        }
+
+        /* ========== Carrusel de imágenes del encabezado ========== */
+        .header-image {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: none;
+            transition: opacity 1s ease;
+        }
+
+        .header-image img.active {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -273,8 +299,13 @@
             <a href="#ofertas">Ofertas</a>
             <a href="#contacto">Contacto</a>
         </nav>
-        <button class="cart-button" onclick="toggleCart()">Ver Carrito</button>
     </header>
+
+    <!-- ========== Carrusel de imágenes del encabezado ========== -->
+    <div class="header-image">
+        <img src="images/Encabezado/1.png" alt="Imagen 1" class="active">
+        <img src="images/Encabezado/2.png" alt="Imagen 2">
+    </div>
 
     <!-- ========== Contenedor Principal ========== -->
     <div class="container">
@@ -342,6 +373,7 @@
         </section>
     </div>
 
+
     <!-- ========== Carrito ========== -->
     <div id="cart">
         <h3>Carrito</h3>
@@ -351,38 +383,40 @@
     </div>
 
     <!-- ========== Botón de WhatsApp ========== -->
-    <a href="https://wa.me/573134592221" target="_blank" class="whatsapp-button">
+    <a href="https://wa.me/573203262909" target="_blank" class="whatsapp-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
-    <!-- ========== Pie de Página ========== -->
+    <!-- ========== Pie de Página (Footer) ========== -->
     <footer>
         <p>&copy; 2025 Turmalina Higiene. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- ========== Scripts ========== -->
+    <!-- ========== Botón de Ver Carrito Inferior ========== -->
+    <div class="view-cart-button-container">
+        <button class="view-cart-button" onclick="toggleCart()">Ver Carrito</button>
+    </div>
+
     <script>
-        // Se obtiene la lista del carrito de Local Storage o se inicializa vacía.
-        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        const cartList = document.getElementById("cart-items");
-        const totalPriceElement = document.getElementById("total-price");
+        // Función para el carrusel de imágenes del encabezado
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.header-image img');
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 4000);
 
-        // Se guarda la lista actualizada en el Local Storage
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartList = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
 
-        // Se actualiza la visualización del carrito
-        updateCart();
-
-        // Función para agregar productos al carrito
         function addToCart(productName, productPrice) {
-            // Verificar si el producto ya está en el carrito
             const existingItemIndex = cartItems.findIndex(item => item.name === productName);
 
             if (existingItemIndex !== -1) {
-                // Si ya está, aumentar la cantidad
                 cartItems[existingItemIndex].quantity += 1;
             } else {
-                // Si no está, agregarlo al carrito
                 cartItems.push({
                     name: productName,
                     price: productPrice,
@@ -390,37 +424,27 @@
                 });
             }
 
-            // Guardar en el localStorage
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-            // Actualizar la vista del carrito
             updateCart();
         }
 
-        // Función para actualizar la vista del carrito
         function updateCart() {
-            cartList.innerHTML = ''; // Limpiar el carrito
+            cartList.innerHTML = "";
             let totalPrice = 0;
 
-            // Mostrar los productos del carrito
             cartItems.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.innerText = `${item.name} - $${(item.price * item.quantity).toFixed(2)} x ${item.quantity}`;
-                cartList.appendChild(listItem);
                 totalPrice += item.price * item.quantity;
+                const listItem = document.createElement("li");
+                listItem.textContent = `${item.name} - $${item.price} x${item.quantity}`;
+                cartList.appendChild(listItem);
             });
 
-            // Mostrar el precio total
-            totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
-
-            // Mostrar el carrito si tiene productos
-            document.getElementById("cart").style.display = cartItems.length > 0 ? 'block' : 'none';
+            totalPriceElement.textContent = `Total: $${totalPrice.toLocaleString()}`;
         }
 
-        // Función para alternar la visualización del carrito
         function toggleCart() {
-            const cartElement = document.getElementById("cart");
-            cartElement.style.display = cartElement.style.display === 'block' ? 'none' : 'block';
+            const cart = document.getElementById("cart");
+            cart.style.display = cart.style.display === "block" ? "none" : "block";
         }
     </script>
 </body>
