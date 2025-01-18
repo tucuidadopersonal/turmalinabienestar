@@ -136,12 +136,35 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+   /* ========== Carrusel de imágenes del encabezado ========== */
+        .header-image {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: none;
+            transition: opacity 1s ease;
+        }
+
+        .header-image img.active {
+            display: block;
+            opacity: 1;
+
     </style>
 </head>
 <body>
     <header>
         <h1>Jabón Turmalina</h1>
     </header>
+ <!-- ========== Carrusel de imágenes del encabezado ========== -->
+    <div class="header-image">
+        <img src="images/jabones/3.png" alt="Imagen 1" class="active">
+        <img src="images/jabones/4.png" alt="Imagen 2">
+    </div>
     <div class="container">
         <div class="product-info">
             <img src="images/jabonturmalina3.png" alt="Jabón de Turmalina">
@@ -184,5 +207,16 @@
     <footer>
         <p>&copy; 2025 Turmalina Higiene. Todos los derechos reservados.</p>
     </footer>
+  <script>
+        // Función para el carrusel de imágenes del encabezado
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.header-image img');
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 4000);
+</script>
+
 </body>
 </html>
