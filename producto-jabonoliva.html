@@ -7,7 +7,7 @@
     <!-- Link a Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-         body {
+        body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -28,17 +28,19 @@
         }
         .product-info {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             margin-bottom: 2rem;
         }
         .product-info img {
-            max-width: 400px;
-            width: 100%;
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
+            margin-bottom: 1rem;
         }
         .product-info .details {
             max-width: 600px;
+            text-align: center;
         }
         .product-info .details h2 {
             color: #333;
@@ -136,37 +138,56 @@
             height: 450px;
         }
 
-/* ========== Carrusel de imágenes del encabezado ========== */
-
+        /* Carrusel de imágenes */
         .header-image {
             position: relative;
             overflow: hidden;
             width: 100%;
         }
-
         .header-image img {
             width: 100%;
             height: auto;
             display: none;
             transition: opacity 1s ease;
         }
-
         .header-image img.active {
             display: block;
             opacity: 1;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .product-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product-info img {
+                max-width: 80%;
+            }
+            .product-info .details {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+            }
+            .back-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
- <img src="images/logo.png" alt="Logo Jabón Turmalina" style="height: 80px; vertical-align: middle; margin-center: 200px;">
-    <h1 style="display: inline; vertical-align: middle;">Jabón de Oliva</h1>
- <!-- ========== Carrusel de imágenes del encabezado ========== -->
-    <div class="header-image">
-        <img src="images/jabones/1.png" alt="Imagen 1" class="active">
-        <img src="images/jabones/2.png" alt="Imagen 2">
-        <img src="images/jabones/6.png" alt="Imagen 3">
-    </div>
-        
+        <img src="images/logo.png" alt="Logo Jabón Turmalina" style="height: 80px; vertical-align: middle; margin-center: 200px;">
+        <h1 style="display: inline; vertical-align: middle;">Jabón de Oliva</h1>
+        <div class="header-image">
+            <img src="images/jabones/1.png" alt="Imagen 1" class="active">
+            <img src="images/jabones/2.png" alt="Imagen 2">
+            <img src="images/jabones/6.png" alt="Imagen 3">
+        </div>
     </header>
     <div class="container">
         <div class="product-info">
@@ -185,7 +206,6 @@
                 <p>Elimina las arrugas faciales y previene el envejecimiento de la piel.</p>
                 <p class="price">$15.900</p>
 
-                <!-- Formulario para seleccionar la cantidad -->
                 <form id="cart-form">
                     <label for="quantity">Cantidad:</label>
                     <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px; margin-right: 10px;">
@@ -196,14 +216,12 @@
             </div>
         </div>
 
-        <!-- Video -->
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/iGgbaw1ILMc" title="Video del Jabón Oliva" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
         <a href="index.html" class="back-button">Volver a la tienda</a>
 
-        <!-- Carrito de compras -->
         <div id="cart">
             <h3>Carrito de Compras</h3>
             <ul id="cart-items"></ul>
@@ -221,28 +239,20 @@
     </footer>
 
     <script>
-        const pricePerUnit = 15900; // Precio del producto
+        const pricePerUnit = 15900;
         const cartList = document.getElementById("cart-items");
         const totalPriceElement = document.getElementById("total-price");
         const buyNowButton = document.getElementById("buy-now");
 
-        // Cargar carrito desde localStorage
         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-        // Actualizar carrito al cargar la página
         updateCart();
 
         document.getElementById("add-to-cart").addEventListener("click", function() {
             const quantity = parseInt(document.getElementById("quantity").value);
-
             if (quantity > 0) {
                 const item = { name: "Jabón de Oliva", quantity: quantity, price: pricePerUnit * quantity };
                 cartItems.push(item);
-
-                // Guardar carrito en localStorage
                 localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-                // Actualizar el carrito visualmente
                 updateCart();
             } else {
                 alert("Por favor, selecciona una cantidad válida.");
@@ -250,31 +260,23 @@
         });
 
         function updateCart() {
-            // Limpiar lista actual
             cartList.innerHTML = "";
             let total = 0;
-
-            // Añadir elementos al carrito
             cartItems.forEach((item, index) => {
                 const listItem = document.createElement("li");
                 listItem.innerHTML = `${item.name} x ${item.quantity} - $${item.price.toLocaleString()} <button class="remove-button" onclick="removeItem(${index})">Quitar</button>`;
                 cartList.appendChild(listItem);
                 total += item.price;
             });
-
-            // Actualizar total
             totalPriceElement.textContent = `Total: $${total.toLocaleString()}`;
         }
 
         function removeItem(index) {
-            // Eliminar el artículo del carrito
             cartItems.splice(index, 1);
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-            // Actualizar el carrito visualmente
             updateCart();
         }
- // Función para el carrusel de imágenes del encabezado
+
         let currentIndex = 0;
         const images = document.querySelectorAll('.header-image img');
         setInterval(() => {
