@@ -135,11 +135,38 @@
             max-width: 800px;
             height: 450px;
         }
+
+/* ========== Carrusel de imágenes del encabezado ========== */
+
+        .header-image {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: none;
+            transition: opacity 1s ease;
+        }
+
+        .header-image img.active {
+            display: block;
+            opacity: 1;
     </style>
 </head>
 <body>
     <header>
-        <h1>Jabón de Oliva</h1>
+ <img src="images/logo.png" alt="Logo Jabón Turmalina" style="height: 80px; vertical-align: middle; margin-center: 200px;">
+    <h1 style="display: inline; vertical-align: middle;">Jabón de Oliva</h1>
+ <!-- ========== Carrusel de imágenes del encabezado ========== -->
+    <div class="header-image">
+        <img src="images/jabones/1.png" alt="Imagen 1" class="active">
+        <img src="images/jabones/2.png" alt="Imagen 2">
+        <img src="images/jabones/6.png" alt="Imagen 3">
+    </div>
+        
     </header>
     <div class="container">
         <div class="product-info">
@@ -247,6 +274,14 @@
             // Actualizar el carrito visualmente
             updateCart();
         }
+ // Función para el carrusel de imágenes del encabezado
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.header-image img');
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 4000);
     </script>
 </body>
 </html>
