@@ -211,17 +211,24 @@ nav {
         }
 
         .products {
-        display: grid;
-        grid-template-columns: 1fr; /* Una columna por defecto */
+        display: flex;
+        grid-template-columns: column; /* Una columna por defecto */
         gap: 1rem;
         margin-top: 2rem;
         }
 
     }
 .product {
-        .product {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 1rem;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+.product:hover {
+    transform: translateY(-5px);
 }
     }
 
@@ -298,15 +305,6 @@ nav {
         font-size: 1.2rem;
     }
 }
- .product {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        padding: 1rem;
-        box-sizing: border-box;
-        transition: transform 0.3s;
-    }
  .product:hover {
         transform: translateY(-5px);
     }
@@ -467,38 +465,27 @@ nav {
     }
 
         /* ========== Botón de Más Información (verde) ========== */
-        .product .info-button {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            border: 2px solid #4CAF50;
-            transition: background-color 0.3s, color 0.3s;
-        }
+        .product .info-button,
+.product .add-to-cart {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .product .info-button:hover,
-    .product .add-to-cart:hover {
-        background-color: #45a049;
-    }
-
-        /* ========== Botón Agregar al Carrito ========== */
-        .product .add-to-cart {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s;
-            margin-top: 1rem;
-        }
+.product .info-button {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+}
 
         .product .add-to-cart:hover {
             background-color: #4CAF50;
             color: white;
+border: 2px solid #4CAF50;
         }
 
         /* ========== Carrito Flotante ========== */
