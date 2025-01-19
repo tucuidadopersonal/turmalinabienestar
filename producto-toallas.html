@@ -21,6 +21,51 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+/* Clases reutilizables */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #FADADD;
+    color: #B76E79;
+    border: 2px solid #F4B6C2;
+}
+
+.btn-secondary:hover {
+    background-color: #F4B6C2;
+}
 
 /* Sección de videos de testimonios */
 .testimonios {
@@ -84,26 +129,25 @@ body {
 }
 
 
-        /* ========== Encabezado (Header) ========== */
-        header {
-    background-color: #FADADD; /* Rosado pastel */
-    color: #333; /* Contraste suave con el texto */
+    /* Encabezado */
+header {
+    background-color: #FADADD;
+    color: #333;
     padding: 2rem;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-      header h1 {
+}
+  header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: #B76E79; /* Un rosado más oscuro para destacar */
+    color: #B76E79;
 }
 
-        header p {
+      header p {
     font-size: 1.1rem;
     margin-top: 0;
-    color: #7A7575; /* Gris suave */
+    color: #7A7575;
 }
 
         /* Contenedor de navegación */
@@ -115,6 +159,13 @@ body {
         }
 
         /* Estilo de los enlaces de navegación */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
         nav a {
     color: #B76E79; /* Rosado oscuro */
     text-decoration: none;
@@ -152,10 +203,11 @@ body {
 
         /* ========== Sección de Productos ========== */
         .products {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
-            gap: 1rem;
-            margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
         }
 
         .products {
@@ -167,13 +219,10 @@ body {
 
     }
 .product {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        padding: 1rem;
-        box-sizing: border-box;
-        transition: transform 0.3s;
+        .product {
+    text-align: center;
+    padding: 1rem;
+}
     }
 
 .product-description {
@@ -288,12 +337,40 @@ body {
 /*=========== Seccion Testimonios===========*/
 
 
-  .testimonios {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-        }
+ .testimonios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.testimonio video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 5px solid #4caf50;
+}
+
+.testimonio .contenido {
+    padding: 15px;
+}
+
+.testimonio h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #4caf50;
+}
+
+.testimonio p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #666;
+}
+
+
  .testimonios h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
@@ -358,16 +435,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Pequeña sombra para resaltar */
 }
 
-.carousel-item p {
-    font-size: 1rem;
-    color: #660033;
-    margin-bottom: 0.5rem;
-}
 
-.carousel-item h3 {
-    color: #99004d;
-    font-weight: bold;
-}
 
 .carousel-btn {
     position: absolute;
