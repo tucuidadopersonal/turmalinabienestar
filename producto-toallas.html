@@ -11,28 +11,31 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #f4f4f4;
         }
 
         /* ========== Encabezado (Header) ========== */
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 2rem;
+            background-color: #2a9d8f;
+            color: #ffffff;
+            padding: 20px 10px;;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: bold;
+    }
 
         header p {
-            font-size: 1.1rem;
-            margin-top: 0;
-        }
+      margin: 5px 0 0;
+      font-size: 1.2em;
+      font-style: italic;
+      opacity: 0.9;
+    }
+ 
 
         /* Contenedor de navegación */
         nav {
@@ -49,16 +52,16 @@
             font-weight: bold;
             padding: 10px 20px;
             border-radius: 5px;
-            background-color: #4CAF50;
+            background-color: #2a9d8f;
             transition: background-color 0.3s;
         }
 
         nav a.active {
-            background-color: #45a049;
+            background-color: #00bfff;
         }
 
         nav a:hover {
-            background-color: #45a049;
+            background-color: #00bfff;
         }
 
         /* ========== Contenedor Principal ========== */
@@ -232,6 +235,61 @@
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
 
+ /* Sección de descripción */
+    .description {
+      background-color: #ffffff;
+      padding: 40px;
+      margin: 30px 0;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .description h2 {
+      color: #5a8dee;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .description p {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .description ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .description ul li {
+      font-size: 1.1em;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .description ul li::before {
+      content: "✔";
+      color: #5a8dee;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+ /* Imagen */
+    .image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
         /* ========== Pie de Página (Footer) ========== */
         footer {
             background-color: #333;
@@ -286,6 +344,17 @@
             display: block;
             opacity: 1;
         }
+
+  /* Responsividad */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .cta-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+      }
     </style>
 </head>
 <body>
@@ -308,6 +377,10 @@
     <div class="header-image">
         <img src="images/Encabezado/1.png" alt="Imagen 1" class="active">
         <img src="images/Encabezado/2.png" alt="Imagen 2">
+<img src="1.png" alt="Imagen 2">
+<img src="2.png" alt="Imagen 2">
+<img src="3.png" alt="Imagen 2">
+<img src="4.png" alt="Imagen 2">
     </div>
 
     <!-- ========== Contenedor Principal ========== -->
@@ -323,7 +396,7 @@
             
                      <div class="product">
                 <img src="images/toalladia.png" alt="Toallas Higiénicas para el uso de dia">
-                <h3>Toallas higiénicas uso de Día</h3>
+                <h3>Toallas Higienicas uso noche (Smilife) </h3>
                 <p>Ultrafina / Transpirable / Muy Absorbente / Limpia / Delicada con la piel / 10 Unidades.</p>
                 <p class="price">$12.900</p>
                 <a href="producto-toallas.html" class="info-button" target="_blank">Más Información</a>
@@ -332,7 +405,7 @@
 
             <div class="product">
                 <img src="images/protectores.png" alt="Protector diario">
-                <h3>Protectores diarios</h3>
+                <h3>Protectores diarios (Smilife)</h3>
                 <p>Ultrafino / Transpirable / Absorbente / Limpio / 30 unidades.</p>
                 <p class="price">$15.500</p>
                 <a href="producto-toallas.html" class="info-button" target="_blank">Más Información</a>
@@ -341,11 +414,20 @@
 
             <div class="product">
                 <img src="images/toallanoche.png" alt="Toalla higiénica noche">
-                <h3>Toallas higiénicas uso de Noche</h3>
+                <h3>Toallas higiénicas uso de Noche (Smilife)</h3>
                 <p>Ultrafina / Transpirable / Absorbente / Limpia / 8 Unidades.</p>
                 <p class="price">$13.900</p>
                 <a href="producto-toallas.html" class="info-button" target="_blank">Más Información</a>
                 <button class="add-to-cart" onclick="addToCart('Toallas higiénicas uso de Noche', 13900)">Agregar al Carrito</button>
+            </div>
+
+<div class="product">
+                <img src="images/masproductos.png" alt="Toalla higiénica noche">
+                <h3>Visita nuestra tienda principal</h3>
+                <p>Tu tienda de confianza en tu cuidado Personal</p>
+                
+                <a href="index.html" class="info-button" target="_blank">Más Productos</a>
+               
             </div>
         </section>
     </div>
@@ -363,6 +445,33 @@
     <a href="https://wa.me/573203262909" target="_blank" class="whatsapp-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
+
+ <section class="description">
+    <h2>Confort y protección en cada momento</h2>
+    <p>
+      Sabemos lo desafiantes que pueden ser esos días del mes, por eso nuestras toallas higiénicas están diseñadas para ser más que un producto, 
+      una verdadera aliada en tu bienestar. Con tecnología avanzada de turmalina, ofrecen una experiencia única que alivia las incomodidades y te devuelve la confianza para enfrentar el día con energía.
+    </p>
+    <ul>
+      <li>Propiedades antibacterianas naturales que protegen tu piel.</li>
+      <li>Neutralización de olores para que te sientas fresca todo el día.</li>
+      <li>Diseño ultradelgado y súper absorbente para máxima comodidad.</li>
+      <li>Materiales suaves y transpirables que cuidan incluso la piel más sensible.</li>
+    </ul>
+    <p>
+      No dejes que los días difíciles te detengan. Vive con libertad, confianza y la seguridad de que estás usando lo mejor en cuidado femenino. 
+      Porque mereces lo mejor, incluso en tus días más desafiantes.
+    </p>
+
+<div class="image-container">
+      <img src="images/Encabezado/2.png" alt="Toallas Higiénicas de Turmalina">
+    </div>
+
+  </section>
+
+
+
+</div>
 
     <!-- ========== Pie de Página (Footer) ========== -->
     <footer>
