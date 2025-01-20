@@ -12,7 +12,17 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            line-height: 1.8;
         }
+
+ }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
 
         /* ========== Encabezado (Header) ========== */
         header {
@@ -354,7 +364,90 @@
       .cta-button {
         padding: 8px 15px;
         font-size: 0.9em;
+     
+ }
+/* Sección de testimonios */
+    .testimonials {
+      background-color: #ffffff;
+      padding: 50px 40px;
+      margin: 40px 0;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials h2 {
+      color: #5a8dee;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .testimonials p {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .video {
+      width: 48%;
+      max-width: 600px;
+      aspect-ratio: 16/9;
+      background-color: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .video:hover {
+      transform: scale(1.05);
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .video {
+        width: 100%;
       }
+    }
+
+    /* Estilos adicionales para botones */
+    .testimonial-btn {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #5a8dee;
+      color: white;
+      font-size: 1.2em;
+      font-weight: 600;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .testimonial-btn:hover {
+      background-color: #3b68c0;
+    }
+
     </style>
 </head>
 <body>
@@ -369,7 +462,7 @@
             <a href="#home">Inicio</a>
             <a href="#productos">Productos</a>
             <a href="#ofertas">Ofertas</a>
-            <a href="#contacto">Contacto</a>
+          
         </nav>
     </header>
 
@@ -465,6 +558,34 @@
 
 <div class="image-container">
       <img src="images/Encabezado/2.png" alt="Toallas Higiénicas de Turmalina">
+    </div>
+
+<div class="video-container">
+      <!-- Video 1 -->
+      <div class="video">
+        <iframe src="videos/testimonio1.mp4" 
+                title="Testimonio 1" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+        <div class="video-info">
+          <h3>Kelly Suarez</h3>
+          <p>"Mis días de menstruación nunca habían sido tan cómodos. Gracias a estas toallas, me siento segura y fresca todo el día."</p>
+        </div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video">
+        <iframe src="videos/testimonio2.mp4" 
+                title="Testimonio 2" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+        <div class="video-info">
+          <h3>Ana Gómez</h3>
+          <p>"Realmente cambiaron mi experiencia durante la menstruación. Ahora me siento protegida y sin preocupaciones."</p>
+        </div>
+      </div>
     </div>
 
   </section>
