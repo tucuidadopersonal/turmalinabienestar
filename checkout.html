@@ -137,9 +137,19 @@
             padding: 1rem 0;
             margin-top: 2rem;
         }
+
+        .shipping-policy {
+            background-color: #fffae6;
+            color: #333;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #ffc107;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
+   
     <div class="container">
         <h1>Carrito de Compra</h1>
         <ul id="cart-items">
@@ -169,11 +179,14 @@
         </form>
 
         <!-- Botón de WhatsApp -->
-        <a href="https://wa.me/573134592221?text=Hola%20quiero%20realizar%20mi%20compra%20con%20ayuda%20de%20un%20asesor." class="whatsapp-button" target="_blank" id="whatsapp-btn">
+        <button class="whatsapp-button" id="whatsapp-btn">
             Continuar con un Asesor en WhatsApp
-        </a>
+        </button>
     </div>
 
+ <div class="shipping-policy">
+        <p><strong>Políticas de Envío:</strong> Realizamos envíos a todo el país. Los tiempos de entrega varían entre 1 a 7 días hábiles dependiendo de la ubicación. Por favor, asegúrese de proporcionar una dirección completa y correcta para evitar retrasos. Los domicilios son contraentrega, el precio de los productos no incluye domicilio de entrega.</p>
+    </div>
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2025 Turmalina Higiene. Todos los derechos reservados.</p>
@@ -225,12 +238,19 @@
             // Recoger los datos del formulario
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
-            
-            // Aquí puedes realizar una llamada a tu servidor para enviar el correo
-            console.log(data);  // Muestra los datos en la consola para verificar
 
-            // Puedes modificar la URL de WhatsApp para incluir los datos del formulario
-            const whatsappUrl = `https://wa.me/573134592221?text=Hola%20quiero%20realizar%20mi%20compra%20con%20los%20siguientes%20datos%20-%20Nombre:${data.name}%20Correo:${data.email}%20Teléfono:${data.phone}%20Dirección:${data.address}`;
+            let message = `Hola, quiero realizar mi compra con los siguientes datos:\n\n`;
+            message += `Nombre: ${data.name}\nCorreo: ${data.email}\nTeléfono: ${data.phone}\nDirección: ${data.address}\n\n`;
+            message += `Lista de productos:\n`;
+
+            cartItems.forEach((item) => {
+                message += `- ${item.name}: $${item.price.toFixed(2)}\n`;
+            });
+
+            const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+            message += `\nTotal: $${totalPrice.toFixed(2)}`;
+
+            const whatsappUrl = `https://wa.me/573134592221?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
