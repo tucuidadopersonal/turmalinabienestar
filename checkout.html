@@ -239,7 +239,7 @@
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            let message = `Hola, quiero realizar mi compra con los siguientes datos:\n\n`;
+            let message = `Hola ${data.name}, quiero realizar mi compra con los siguientes datos:\n\n`;
             message += `Nombre: ${data.name}\nCorreo: ${data.email}\nTeléfono: ${data.phone}\nDirección: ${data.address}\n\n`;
             message += `Lista de productos:\n`;
 
