@@ -399,7 +399,8 @@
       justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 20px;
+  text-align: center; /* Centra el video y el título */
     }
 
     .video {
@@ -412,6 +413,13 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
     }
+
+  }
+        .video-title {
+            font-size: 1.8em;
+            margin-bottom: 10px; /* Espacio entre el título y el video */
+            color: #333; /* Color del título */
+        }
 
     .video:hover {
       transform: scale(1.05);
@@ -492,7 +500,7 @@
                 <h3>Toallas Higienicas uso noche (Smilife) </h3>
                 <p>Ultrafina / Transpirable / Muy Absorbente / Limpia / Delicada con la piel / 10 Unidades.</p>
                 <p class="price">$12.900</p>
-                <a href="producto-toallas.html" class="info-button" target="_blank">Más Información</a>
+                <a href="producto-toallasdia.html" class="info-button" target="_blank">Más Información</a>
                 <button class="add-to-cart" onclick="addToCart('Toallas higiénicas uso de Día', 12900)">Agregar al Carrito</button>
             </div>
 
@@ -501,7 +509,7 @@
                 <h3>Protectores diarios (Smilife)</h3>
                 <p>Ultrafino / Transpirable / Absorbente / Limpio / 30 unidades.</p>
                 <p class="price">$15.500</p>
-                <a href="producto-toallas.html" class="info-button" target="_blank">Más Información</a>
+                <a href="producto-protector.html" class="info-button" target="_blank">Más Información</a>
                 <button class="add-to-cart" onclick="addToCart('Protectores diarios', 15500)">Agregar al Carrito</button>
             </div>
 
@@ -510,7 +518,7 @@
                 <h3>Toallas higiénicas uso de Noche (Smilife)</h3>
                 <p>Ultrafina / Transpirable / Absorbente / Limpia / 8 Unidades.</p>
                 <p class="price">$13.900</p>
-                <a href="producto-toallas.html" class="info-button" target="_blank">Más Información</a>
+                <a href="producto-toallasnoche.html" class="info-button" target="_blank">Más Información</a>
                 <button class="add-to-cart" onclick="addToCart('Toallas higiénicas uso de Noche', 13900)">Agregar al Carrito</button>
             </div>
 
@@ -556,16 +564,21 @@
       Porque mereces lo mejor, incluso en tus días más desafiantes.
     </p>
 
+<h2>Que dicen nuestras Clientas</h2>
+
 <div class="image-container">
       <img src="images/Encabezado/2.png" alt="Toallas Higiénicas de Turmalina">
     </div>
 
+<title>Video con Contenedor de Título</title>
+
 <div class="video-container">
       <!-- Video 1 -->
       <div class="video">
+
         <iframe src="videos/testimonio1.mp4" 
                 title="Testimonio 1" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
         </iframe>
         <div class="video-info">
@@ -578,7 +591,18 @@
       <div class="video">
         <iframe src="videos/testimonio2.mp4" 
                 title="Testimonio 2" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+        <div class="video-info">
+          <h3>Nombre cliente</h3>
+          <p>"Realmente cambiaron mi experiencia durante la menstruación. Ahora me siento protegida y sin preocupaciones."</p>
+        </div>
+       <!-- Video 2 -->
+      <div class="video">
+        <iframe src="videos/testimonio3.mp4" 
+                title="Testimonio 2" 
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
         </iframe>
         <div class="video-info">
@@ -586,6 +610,7 @@
           <p>"Realmente cambiaron mi experiencia durante la menstruación. Ahora me siento protegida y sin preocupaciones."</p>
         </div>
       </div>
+
     </div>
 
   </section>
