@@ -1,7 +1,0 @@
-[submodule "toallasturmalina"]
-	path = toallasturmalina
-	url = https://github.com/tucuidadopersonal/toallasturmalina.git
-
-[submodule "nutricionysalud"]
-    path = nutricionysalud
-    url = https://github.com/tucuidadopersonal/nutricionysalud.git
