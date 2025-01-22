@@ -1,0 +1,3 @@
+[submodule "nutricionysalud"]
+	path = nutricionysalud
+	url = https://github.com/tuusuario/nutricionysalud.git
